@@ -25,6 +25,15 @@ public class PlayerMoveScript : MonoBehaviour
         float z = Input.GetAxis("Vertical");
         Vector3 moveBy = (transform.right * x + transform.forward * z);
 
+        if (Input.GetAxis("Fire3") < 1)
+        {
+            speed = 10;
+        }
+        else
+        {
+            speed = 17;
+        }
+        Debug.Log(speed);
         rb.MovePosition(transform.position + moveBy.normalized * speed * Time.deltaTime);
 
         // direction move 
