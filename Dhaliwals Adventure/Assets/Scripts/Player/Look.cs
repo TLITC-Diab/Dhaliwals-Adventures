@@ -28,5 +28,6 @@ public class Look : MonoBehaviour
         // camera rotate
         transform.eulerAngles = new Vector3(MouseY, MouseX, 0.0f);
         player.rotation = Quaternion.Euler(cam.rotation.x,0,0);
+        // idfk why this ^ line doesnt work sooo.... atleast cam.rotation works slightly if not with a few small issues 
     }
 }
