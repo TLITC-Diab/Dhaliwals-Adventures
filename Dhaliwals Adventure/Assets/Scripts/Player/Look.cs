@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class Look : MonoBehaviour
 {
-    // camera / rotate 
+    // camera / rotate
     public float MouseSpeed = 2.0f;
 
     public float MouseX = 0.0f;
     public float MouseY = 0.0f;
+    public Rigidbody player;
+    public Transform cam;
 
     void Start()
     {
-        // Lock our cursor 
+        // Lock our cursor
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        // our Looking 
+        // our Looking
         MouseX += MouseSpeed * Input.GetAxis("Mouse X");
         MouseY -= MouseSpeed * Input.GetAxis("Mouse Y");
 
-        // camera rotate 
+        // camera rotate
         transform.eulerAngles = new Vector3(MouseY, MouseX, 0.0f);
+        player.rotation = Quaternion.Euler(cam.rotation.x,0,0);
     }
 }
